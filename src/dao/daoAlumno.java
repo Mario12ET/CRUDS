@@ -67,12 +67,12 @@ public class daoAlumno {
 	public boolean editarAlumno(ALUMNO alumno) {
 		PreparedStatement ps = null;
 		try {
-			ps = cx.conectar().prepareStatement("UPDATE ALUMNO SET nombre=?,grupo=?,municipio=?,semestre=? WHERE id=?");
-			ps.setInt(1,alumno.getId());
-			ps.setString(2, alumno.getNombre());
-			ps.setString(3, ( alumno.getGrupo()));
-			ps.setString(4, alumno.getMunicipio());
-			ps.setString(5,alumno.getSemestre());			
+			ps = cx.conectar().prepareStatement("UPDATE ALUMNO SET NOMBRE=?,GRUPO=?,MUNICIPIO=?,SEMESTRE=? WHERE ID=?");
+			ps.setString(1, alumno.getNombre());
+			ps.setString(2, ( alumno.getGrupo()));
+			ps.setString(3, alumno.getMunicipio());
+			ps.setString(4,alumno.getSemestre());
+			ps.setInt(5,alumno.getId());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
