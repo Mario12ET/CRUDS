@@ -40,8 +40,11 @@ public class vALUMNO extends JFrame {
 	ArrayList<ALUMNO> lista = new ArrayList<ALUMNO>();
 	int fila = -1;
 	ALUMNO alumno = new ALUMNO();
+	@SuppressWarnings("rawtypes")
 	private JComboBox cbosSEME;
+	@SuppressWarnings("rawtypes")
 	private JComboBox cboMUN;
+	@SuppressWarnings("rawtypes")
 	private JComboBox cboGRUPO;
 
 	/**
@@ -68,6 +71,7 @@ public class vALUMNO extends JFrame {
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public vALUMNO() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\mario\\Downloads\\a.png"));
 		setTitle("CRUD USUARIO");

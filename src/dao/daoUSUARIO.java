@@ -21,7 +21,7 @@ public class daoUSUARIO {
 		try {
 			ps = cx.conectar().prepareStatement("INSERT INTO USUARIO VALUES(null,?,?,?)");
 			ps.setString(1, user.getUser());
-			ps.setString(2,convertirSHA256( user.getNombre()));
+			ps.setString(2, convertirSHA256(user.getNombre()));
 			ps.setString(3, user.getPassword());
 			ps.executeUpdate();
 			return true;
@@ -30,7 +30,7 @@ public class daoUSUARIO {
 		}
 		return false;
 	}
-    
+
 	public ArrayList<USUARIO> fetchUsuarios() {
 		ArrayList<USUARIO> lista = new ArrayList<USUARIO>();
 		ResultSet rs = null;
@@ -51,11 +51,12 @@ public class daoUSUARIO {
 		}
 		return lista;
 	}
+
 	public boolean eliminarUsuario(int Id) {
 		PreparedStatement ps = null;
 		try {
 			ps = cx.conectar().prepareStatement("DELETE FROM USUARIO WHERE id=?");
-			ps.setInt(1,Id);
+			ps.setInt(1, Id);
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -63,41 +64,61 @@ public class daoUSUARIO {
 		}
 		return false;
 	}
-    
+
 	public boolean editarUsuario(USUARIO user) {
 		PreparedStatement ps = null;
 		try {
 			ps = cx.conectar().prepareStatement("UPDATE USUARIO SET user=?,password=?,nombre=? WHERE id=?");
 			ps.setString(1, user.getUser());
-			ps.setString(2, convertirSHA256( user.getNombre()));
+			ps.setString(2, convertirSHA256(user.getNombre()));
 			ps.setString(3, user.getPassword());
-			ps.setInt(4,user.getId());
+			ps.setInt(4, user.getId());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return false;
-		
+
 	}
+
 	public String convertirSHA256(String password) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("SHA-256");
-		} 
-		catch (NoSuchAlgorithmException e) {		
+		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 			return null;
 		}
-		    
+
 		byte[] hash = md.digest(password.getBytes());
 		StringBuffer sb = new StringBuffer();
-		    
-		for(byte b : hash) {        
+
+		for (byte b : hash) {
 			sb.append(String.format("%02x", b));
 		}
-		    
+
 		return sb.toString();
 	}
-}
 
+	public boolean loginUsuario(USUARIO user) {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = cx.conectar().prepareStatement("SELECT * FROM USUARIO WHERE USER=? AND PASSWORD=?");
+			ps.setString(1, user.getUser());
+			ps.setString(2, convertirSHA256(user.getPassword()));
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+}

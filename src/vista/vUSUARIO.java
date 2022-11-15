@@ -40,10 +40,7 @@ public class vUSUARIO extends JFrame {
     ArrayList<USUARIO> lista=new ArrayList<USUARIO>();
     int fila=-1;
     USUARIO usuario=new USUARIO();
-    
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -225,8 +222,8 @@ public class vUSUARIO extends JFrame {
 		
 		modelo.addColumn("ID");
 		modelo.addColumn("USER");
-		modelo.addColumn("NOMBRE");
 		modelo.addColumn("PASSWORD");
+		modelo.addColumn("NOMBRE");
 		tblUSUARIOS.setModel(modelo);
 		ActualizarTabla();
 		}
