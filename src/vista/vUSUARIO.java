@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -21,7 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
-public class vUSUARIO extends JFrame {
+public class vUSUARIO extends JInternalFrame {
 
 	private JPanel contentPane;
 	private JLabel LBLD;
@@ -62,13 +63,13 @@ public class vUSUARIO extends JFrame {
 		txtNOMBRE.setText("");
 	}
 	public vUSUARIO() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\mario\\Downloads\\a.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\mario\\Downloads\\a.png"));
 		setTitle("CRUD USUARIO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 469, 556);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
