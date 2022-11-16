@@ -9,8 +9,8 @@ public class CONEXION {
 
 	public Connection conectar() {
 		try {
-			Class.forName("org.sqlite.JDBC");
-			cx = DriverManager.getConnection("jdbc:sqlite:ALUMNO.db");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			cx = DriverManager.getConnection("jdbc:mysql://localhost:3306/parcia3-3er-semestre","root","");
 			System.out.println("Conexion Exitosa");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
