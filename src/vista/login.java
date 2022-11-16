@@ -102,7 +102,7 @@ public class login extends JFrame {
 			public void keyTyped(KeyEvent e) {
 				if(txtPASS.getText().length()>=10) {
 					e.consume();
-				}
+				} 
 			}
 		});
 		txtPASS.setBounds(10, 129, 212, 20);
