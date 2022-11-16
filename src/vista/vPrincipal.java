@@ -24,6 +24,8 @@ public class vPrincipal extends JFrame {
 	private JPanel contentPane;
     private JToolBar barraHerramientas;
     vUSUARIO vUSUARIO=new vUSUARIO();
+    vALUMNO vALUMNO = new vALUMNO();
+    private JButton btnNewButton_1;
 	/**
 	 * Launch the application.
 	 */
@@ -77,10 +79,19 @@ public class vPrincipal extends JFrame {
 		});
 		toolBar.add(btnNewButton);
 		
+		btnNewButton_1 = new JButton("CRUD ALUMNOS");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vALUMNO.setVisible(true);
+			}
+		});
+		toolBar.add(btnNewButton_1);
+		
 		desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 53, 408, 221);
 		desktopPane.setSize((int)ancho,(int)alto);
 		contentPane.add(desktopPane);
 		desktopPane.add(vUSUARIO);
+		desktopPane.add(vALUMNO);
 	}
 }

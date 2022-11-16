@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -23,7 +24,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 @SuppressWarnings("serial")
-public class vALUMNO extends JFrame {
+public class vALUMNO extends JInternalFrame {
 
 	private JPanel contentPane;
 	private JLabel LBLD;
@@ -73,13 +74,13 @@ public class vALUMNO extends JFrame {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public vALUMNO() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\mario\\Downloads\\a.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\mario\\Downloads\\a.png"));
 		setTitle("CRUD USUARIO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 469, 556);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setLocationRelativeTo(null);
+		//setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

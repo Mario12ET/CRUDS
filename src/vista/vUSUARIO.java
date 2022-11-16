@@ -235,7 +235,7 @@ public class vUSUARIO extends JInternalFrame {
 	    lista=dao.fetchUsuarios();
 	    for(USUARIO u:lista) {
 	    	Object o[]=new Object[4];
-	    	o[0]=u.getId();	    			
+	    	o[0]=u.getId();	    				
 	    	o[1]=u.getUser();	    		    		
 	    	o[2]=u.getNombre();	 
 	    	o[3]=u.getPassword();
