@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class vPrincipal extends JFrame {
 	private JDesktopPane desktopPane;
 	double ancho=Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -22,7 +23,6 @@ public class vPrincipal extends JFrame {
 	private JButton btnNewButton;
 	private JMenuBar menuBar;
 	private JPanel contentPane;
-    private JToolBar barraHerramientas;
     vUSUARIO vUSUARIO=new vUSUARIO();
     vALUMNO vALUMNO = new vALUMNO();
     private JButton btnNewButton_1;
