@@ -21,7 +21,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class login extends JFrame {
+public class vLogin extends JFrame {
 	private JLabel lblUsuario;
 	private JButton btnCancelar;
 	private JPanel contentPane;
@@ -38,7 +38,7 @@ public class login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					login frame = new login();
+					vLogin frame = new vLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public login() {
+	public vLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
