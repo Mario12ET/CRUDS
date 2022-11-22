@@ -22,7 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
-public class vUSUARIO extends JInternalFrame {
+public class vUSUARIO extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel LBLD;
@@ -92,7 +92,7 @@ public class vUSUARIO extends JInternalFrame {
 		txtUSER.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("PASSWORD");
-		lblPassword.setBounds(36, 92, 57, 14);
+		lblPassword.setBounds(36, 120, 81, 14);
 		contentPane.add(lblPassword);
 		
 		txtPASSWORD = new JTextField();
@@ -101,7 +101,7 @@ public class vUSUARIO extends JInternalFrame {
 		contentPane.add(txtPASSWORD);
 		
 		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(36, 128, 57, 14);
+		lblNombre.setBounds(36, 89, 57, 14);
 		contentPane.add(lblNombre);
 		
 		txtNOMBRE = new JTextField();
@@ -115,8 +115,8 @@ public class vUSUARIO extends JInternalFrame {
 		try {
 					USUARIO user=new USUARIO();
 					user.setUser(txtUSER.getText());
-					user.setPassword(txtNOMBRE.getText());
-					user.setNombre(txtPASSWORD.getText());
+					user.setNombre(txtNOMBRE.getText());
+					user.setPassword(txtPASSWORD.getText());
 					
 					if (dao.insertaUsuario(user)) {
 						JOptionPane.showMessageDialog(null, "SE AGREGO CORRECTAMENTE");
@@ -203,7 +203,7 @@ public class vUSUARIO extends JInternalFrame {
 				fila=tblUSUARIOS.getSelectedRow();
 				usuario=lista.get(fila);	
 				lblID.setText(""+lista.get(fila).getId());
-				txtUSER.setText(""+usuario.getId());
+				txtUSER.setText(""+usuario.getUser());
 				txtPASSWORD.setText(""+usuario.getPassword());
 				txtNOMBRE.setText(""+usuario.getNombre());
 				
@@ -223,8 +223,8 @@ public class vUSUARIO extends JInternalFrame {
 		
 		modelo.addColumn("ID");
 		modelo.addColumn("USER");
-		modelo.addColumn("PASSWORD");
 		modelo.addColumn("NOMBRE");
+		modelo.addColumn("PASSWORD");
 		tblUSUARIOS.setModel(modelo);
 		ActualizarTabla();
 		}
@@ -235,14 +235,13 @@ public class vUSUARIO extends JInternalFrame {
 	    lista=dao.fetchUsuarios();
 	    for(USUARIO u:lista) {
 	    	Object o[]=new Object[4];
-	    	o[0]=u.getId();	    				
+	    	o[0]=u.getId();
 	    	o[1]=u.getUser();	    		    		
-	    	o[2]=u.getNombre();	 
-	    	o[3]=u.getPassword();
+	    	o[2]=u.getPassword();	 
+	    	o[3]=u.getNombre();
 	    	modelo.addRow(o);
 	    }
 	    tblUSUARIOS.setModel(modelo);
 	   
 	    }
 	}
-
